@@ -30,7 +30,7 @@ import static biweekly.property.Status.*;
 @RequestMapping("/calendar")
 public class CalendarController {
 
-    @GetMapping()
+    @GetMapping("calendar/generate/currentMonth")
     ResponseEntity<Resource> calendar() throws IOException {
 
         Document weeiaCalendar = Jsoup.connect("http://www.weeia.p.lodz.pl/").get();
@@ -52,7 +52,7 @@ public class CalendarController {
         Biweekly.write(ical).go(file);
 
 
-        InputStreamResource resource = new InputStreamResource(new FileInputStream("WEEIiA-Calendar.ics"));
+        InputStreamResource resource = new InputStreamResource(new FileInputStream("calendar.ics"));
         return ResponseEntity.ok().contentType(MediaType.parseMediaType("application/octet-stream"))
                 .body(resource);
     }
