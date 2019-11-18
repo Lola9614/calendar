@@ -11,7 +11,7 @@ API call:
 
 *http://localhost:8080/calendar/generate/currentMonth*
 
-Example API response:
+It download file to disk file like following example:
 
 ```BEGIN:VCALENDAR
 VERSION:2.0
